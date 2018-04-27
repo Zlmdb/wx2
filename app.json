@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index1/index1",
+    "pages/programFeatures/programFeatures",
+    "pages/houseDetail1/houseDetail1"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#587594",
+    "navigationBarTitleText": "房88甄选",
+    "navigationBarTextStyle": "#ffffff",
+    "backgroundTextStyle": "light"
+  }
+}

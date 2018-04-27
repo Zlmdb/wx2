@@ -1,0 +1,5 @@
+<view class="foot_buttom">
+  <view class='share'><button open-type="share" class='online_isson_button'>分享</button></view>
+  <view class='online_isson'><button open-type="contact" class='online_isson_button'>在线咨询</button></view>
+  <view class='call_88' bindtap='call'>联系房88顾问</view>
+</view>

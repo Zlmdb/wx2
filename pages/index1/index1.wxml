@@ -1,0 +1,88 @@
+<!--pages/index1/index1.wxml-->
+<view class='top'>
+    <swiper current="{{}}" indicator-dots="{{}}" autoplay="{{}}" duration="{{}}" class="swiper">
+
+        <!-- <block wx:for="{{photo}}" wx:key="{{index}}">
+            <swiper-item>
+                <view class="sweepItem" style="background-image:url({{item}})" />
+            </swiper-item>
+        </block> -->
+        <swiper-item>
+          <view class="sweepItem" style="background-image:url('https://fang88images-cn.oss-cn-shanghai.aliyuncs.com/9afc89d2907efd243869213d2124e51a.jpg')" />
+        </swiper-item>
+    </swiper>
+</view>
+<view class='banners'>
+  <view class='banner_con'>
+    <view class='banner_icon'><image src="../../images/allAmerica.png"></image></view>
+    <view class='banner_area'>全美好房</view>
+    <!-- <view class='banner_detail'>优化项目推荐</view> -->
+  </view>
+  
+  <view class='banner_con'>
+    <view class='banner_icon'><image src="../../images/income.png"></image></view>
+    <view class='banner_area'>稳健收益</view>
+    <!-- <view class='banner_detail'>稳健增长</view> -->
+  </view> 
+  <view class='banner_con'>
+    <view class='banner_icon'><image src="../../images/annualized.png"></image></view>
+    <view class='banner_area'>免费咨询</view>
+    <!-- <view class='banner_detail'>8%回报率</view> -->
+  </view>
+</view>
+<view class='houselist'>
+  <block wx:for="{{listData}}" wx:key="*this">
+    <view class='houselist_item' bindtap='toPage' data-projectid="{{item.project_id}}">
+      <!-- <view class='housePrice'>
+        <text>$88</text><text style='font-size:23rpx;margin-left:20rpx;'>万起</text>
+      </view> -->
+      <!-- <view class='houseCity'>
+        休斯敦 Katy
+      </view> -->
+      <view class='houseDetail'>
+        <view class='houseDetail_area'>
+                <text style=''>{{item.area}}</text><text style='margin:0 10rpx;transform:scale(1.5)'>·</text><text>{{item.project_name}}</text>
+        </view>
+        <view class='houseDetail_introduce'>
+                <text class='house_type'>{{item.property_type_zh}}</text><text class='house_room'>{{item.bedrooms_min}}-{{item.bedrooms_max}}居</text><text class='house_area'>{{item.sqft_min}}-{{item.sqft_max}}㎡</text>
+        </view>
+      </view>
+      <view class='house_photo'>
+        <scroll-view style='height:100%;white-space:nowrap;' scroll-x='true'>
+           <block wx:for="{{item.photo_json}}" wx:key="*this">
+           <!-- {{item}} -->
+              <view class='' style='display:inline-block;height:100%;width:100%;overflow:hidden'>
+              <!-- <image src='http://img.fang88.com/26fea722de6474320c224c55c1df6a2e.jpg'></image> -->
+              <image src="{{'http://img.fang88.com/'+item.path}}"></image>
+            </view>
+           </block>
+        </scroll-view>
+      </view>
+      <view class='house_number'>
+        <view class='number2'>
+          <view class='number' wx:if="{{item.project_type==='project'?true:false}}">￥{{item.price_min}}~￥{{item.price_max}}万
+          </view>
+          <view class='number' wx:else>￥{{item.price_min}}万
+          </view>
+          <view class='index'>价格区间</view>
+        </view>
+        <view class='number3'>
+          <view class='connect_line'></view>
+          <view>    </view>
+        </view>
+        <view class='number1'>
+          <view class='number'>{{item.estimated_yearly_return}}</view>
+          <view class='responseRate'>预估年化回报率</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class='pageBottom' wx:if="{{isPageBottom}}">更多精彩项目，敬请期待...</view>
+</view>
+
+     
+    <!-- <view>
+      <button open-type='contact' session-from="weapp">联系客服</button>
+      <contact-button class='cBtn' type="default-dark" size="20" session-from="weapp">
+</contact-button>
+    </view> -->

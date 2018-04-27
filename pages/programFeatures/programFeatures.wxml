@@ -1,0 +1,10 @@
+<!--pages/programFeatures/programFeatures.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='leader_title'>项目特色</view>
+<view class='program'>
+  <view class='program_con'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>
+<!-- 页面下方三个固定按钮 -->
+<include src="../../common/button.wxml"/>

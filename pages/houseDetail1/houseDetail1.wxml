@@ -1,0 +1,86 @@
+<view class='top'>
+    <swiper current="{{}}" indicator-dots="{{}}" autoplay="{{}}" duration="{{}}" class="swiper">
+      <block wx:for="{{data.photo_json}}" wx:key="*this">
+        <swiper-item>
+          <view class="sweepItem" style="background-image:url({{'http://img.fang88.com/'+item.path}})" />
+        </swiper-item>
+      </block>
+    </swiper>
+</view>
+<!-- <view class='banner'>
+  <text style='margin-right:20rpx;padding:0 20rpx;border-right:1px solid #999DFD'>休斯敦 katy</text><text style='margin-right:20rpx;'>美临水岸</text><text style='font-size:28rpx;'>Camillo Lakes</text>
+</view> -->
+<view class='introduceList'>
+  <view class='housePrice'>
+      <text>{{data.area}}</text><text style='margin:0 10rpx;transform:scale(1.5)'>·</text><text style='margin-left:20rpx;'>{{data.project_name}}</text>
+      <!-- <text class='online_service'>在线客服</text> -->
+  </view>
+  <view class='houselist_item'>
+    <view class='house_number'>
+      <view class='number2'>
+        <view class='number' wx:if="{{data.project_type==='project'?true:false}}">￥{{data.price_min}}~￥{{data.price_max}}万</view>
+        <view class='number' wx:else>￥{{data.price_min}}万</view>
+        <view class='index'>价格区间</view>
+      </view>
+      <view class='number3'>
+        <view class='connect_line'></view>
+        <view>    </view>
+      </view>
+      <view class='number1'>
+        <view class='number'>{{data.estimated_yearly_return}}</view>
+        <view class='responseRate'>预估年化回报率</view>
+      </view>
+      
+    </view>
+  </view>
+  <view class='houseFeatures'>
+    <view class='houseFeatures_position_center'>
+      <block wx:for="{{data.tags_zh}}" wx:key="*this">
+        <view>
+          <image src="../../images/selected.png"></image>{{item}}
+        </view>
+      </block>
+      
+      <!-- <view>
+        <image src="../../images/selected.png"></image>进地铁
+      </view>
+      <view>
+        <image src="../../images/selected.png"></image>投资房
+      </view> -->
+    </view>
+  </view>
+  <view class='leader_title'>基本信息</view>
+  <view class='basiscInfo'>
+    <view class='basiscInfo_up'>
+      <view class='basiscInfo_item'>
+        <view class='itme_left'><text class='info_key'>户型选择:</text><text class='info_value'>{{data.bedrooms_min}}-{{data.bedrooms_max}}居</text></view>
+        <view class='itme_right'><text class='info_key'>户型面积:</text><text class='info_value'>{{data.sqft_min}}-{{data.sqft_max}}㎡</text></view>
+      </view>
+      <view class='basiscInfo_item'>
+        <view class='itme_left'><text class='info_key'>物业类型:</text><text class='info_value'>{{data.property_type_zh}}</text></view>
+        <view class='itme_right'><text class='info_key'>物业费用:</text><text class='info_value'>约￥{{data.sqft_price}}/月</text></view>
+      </view>
+      <view class='basiscInfo_item'>
+        <view class='itme_left'><text class='info_key'>交房日期:</text><text class='info_value'>{{data.close_date}}</text></view>
+        <view class='itme_right'><text class='info_key'>能否贷款:</text><text class='info_value'>{{data.can_loan===0?'否':'是'}}</text></view>
+      </view>
+    </view>
+     <view class='basiscInfo_down' wx:if="{{is_plus_value}}">
+      <view class='special_service'> <text class='info_prompt_title'>特殊包租服务：</text><text class='info_prompt_con'>{{data.plus_value}}</text></view>
+    </view> 
+  </view>
+  <view class='leader_title'>户型介绍</view>
+  <view class='House_type_introduction'>
+    <scroll-view class='scroll_house' scroll-x='true'>
+      <block wx:for="{{data.layout_photo_json}}" wx:key="*this">
+              <view class='scroll_item'><image src="{{'http://img.fang88.com/'+item.path}}"></image></view>
+      </block>
+      <!-- <view class='scroll_item'><image src='../../images/fastcapture.png'></image></view>
+      <view class='scroll_item'><image src='../../images/fastcapture.png'></image></view> -->
+    </scroll-view>
+  </view>
+  <view class='program_fecture' bindtap='toProgramFecture'> <image src='../../images/program_fecture.png'></image> 查看项目特色</view>
+</view>
+<!-- 页面下方三个固定按钮 -->
+<include src="../../common/button.wxml"/>
+
